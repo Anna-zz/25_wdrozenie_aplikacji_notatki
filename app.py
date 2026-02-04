@@ -115,6 +115,7 @@ def list_notes_from_db(query=None):
         return result
 
 
+
 #
 # MAIN
 #
