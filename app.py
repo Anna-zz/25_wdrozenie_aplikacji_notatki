@@ -10,6 +10,11 @@ from qdrant_client.models import PointStruct, Distance, VectorParams
 
 env = dotenv_values(".env")
 
+if 'QDRANT_URL' in st.secrets:
+    env['QDRANT_URL'] = st.secrets['QDRANT_URL']
+if 'QDRANT_API_KEY' in st.secrets:
+    env['QDRANT_API_KEY'] = st.secrets['QDRANT_API_KEY']
+
 EMBEDDING_MODEL = "text-embedding-3-large"
 
 EMBEDDING_DIM = 3072
@@ -188,3 +193,4 @@ with search_tab:
                 st.markdown(note["text"])
                 if note["score"]:
                     st.markdown(f':violet[{note["score"]}]')
+                    
